@@ -1,4 +1,4 @@
-import ObjectEngine, { Param } from '../ObjectEngine';
+import ObjectEngine, { ArgWord } from '../ObjectEngine';
 
 it('should convert tar definition to cli string', () => {
   const definition = {
@@ -51,7 +51,7 @@ it('should join top level commands with &&', () => {
 it('should pipe commands to cli string', () => {
   const definition = {
     npm: {
-      config: Param('list'),
+      config: ArgWord('list'),
     },
     grep: 'user-agent',
     tr: ['.', ','],
@@ -66,8 +66,8 @@ it('should pipe commands to cli string', () => {
 it ('should string array with &&', () => {
   const definition = [
     { yarn: { add: { '-D': [ 'jest'] }}},
-    { yarn: Param('test') },
-    { yarn: Param('build') },
+    { yarn: ArgWord('test') },
+    { yarn: ArgWord('build') },
   ];
 
   const raw = ObjectEngine(definition);
@@ -78,7 +78,7 @@ it ('should string array with &&', () => {
 it('should convert arbitrarily complex definition to string', () => {
   const definition = {
     main: [
-      Param('--fit'),
+      ArgWord('--fit'),
       {
         swing: {
           start: '0',

@@ -37,7 +37,7 @@ const churn = (definition, isTop = false) => {
   }
 }
 
-export const Param = (parameter) => {
+export const ArgWord = (parameter) => {
   const __obj = {};
   __obj[parameter] = null;
   return __obj;

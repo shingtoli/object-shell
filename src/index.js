@@ -1,4 +1,4 @@
-import ObjectEngine, { Param } from './object-engine/ObjectEngine';
+import ObjectEngine, { ArgWord } from './object-engine/ObjectEngine';
 
 export const commandify = ObjectEngine;
 export * from './object-engine/ObjectEngine';
@@ -7,11 +7,11 @@ const main = () => {
   // Test
   const definition = {
     echo: 'hello',
-    node: Param('--version'),
+    node: ArgWord('--version'),
     yarn: {
       add: { '-D': ['@babel/core', 'jest'] },
     },
-    npm: { config: Param('list') },
+    npm: { config: ArgWord('list') },
   };
 
   const raw = ObjectEngine(definition);
